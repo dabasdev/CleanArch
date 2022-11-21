@@ -7,19 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Validations\**" />
+    <EmbeddedResource Remove="Validations\**" />
+    <None Remove="Validations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Contracts\" />
     <Folder Include="Dto\PostDtos\" />
     <Folder Include="Features\Posts\Commands\CreatePost\" />
     <Folder Include="Features\Posts\Commands\DeletePost\" />
     <Folder Include="Features\Posts\Commands\UpdatePost\" />
-    <Folder Include="Features\Posts\Queries\GetPostDetails\" />
     <Folder Include="Features\Posts\Queries\GetPostsList\" />
     <Folder Include="Mapping\" />
-    <Folder Include="Validations\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="FluentValidation" Version="11.3.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
 
