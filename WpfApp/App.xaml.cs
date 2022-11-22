@@ -27,11 +27,19 @@ public partial class App : Application
 
     protected override async void OnStartup(StartupEventArgs e)
     {
+        await AppHost!.StartAsync();
+
         var main = AppHost?.Services.GetRequiredService<MainWindow>();
 
         var db = AppHost?.Services.GetRequiredService<AppDbContext>();
+
         await db!.Database.EnsureCreatedAsync();
 
         main?.ShowDialog();
+    }
+
+    protected override async void OnExit(ExitEventArgs e)
+    {
+        await AppHost!.StopAsync();
     }
 }

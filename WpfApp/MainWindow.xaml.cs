@@ -21,9 +21,6 @@ public partial class MainWindow : Window
     {
         var dto = await _mediator.Send(new GetPostsListQuery());
 
-        if (dto.Count > 0)
-        {
-            Dgv.ItemsSource = dto;  
-        }
+        if (dto.Count > 0) Dgv.ItemsSource = dto;
     }
 }

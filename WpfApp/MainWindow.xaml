@@ -9,6 +9,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <DataGrid Name="Dgv"
-                  AutoGenerateColumns="True"/>
+                  AutoGenerateColumns="True" />
     </Grid>
 </Window>

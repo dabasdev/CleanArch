@@ -17,12 +17,9 @@ public static class AppContainer
             .AddJsonFile("config.json")
             .Build();
 
-        services.AddMediatR(Assembly.GetExecutingAssembly());
+        services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
 
         services.AddAutoMapper(expression => expression.AddProfile(typeof(AutoMapperProfile)));
-        
-        services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
 
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(config.GetConnectionString("PostConnectionString")));
